@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantifyX - Launching Soon</title>
+    <style>
+        /* Importing a modern, professional font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Basic styling for body to center content and set background */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        /* Container for the text content */
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensures text is above background */
+        }
+
+        /* Styling for the main title "QuantifyX" */
+        h1 {
+            font-size: 8vw; /* Responsive font size */
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+        }
+
+        /* Styling and animation for the "Launching Soon" text */
+        p {
+            font-size: 3vw; /* Reduced responsive font size */
+            margin-top: 2vh;
+            font-weight: 700; /* Bold for emphasis */
+            color: #d4af37; /* Light goldish tone */
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); /* Glowing effect */
+        }
+
+        /* Pulse animation to draw attention */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Floating animation for "Launching Soon" */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Grid background */
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the text but above the vignette */
+            background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%),
+                              linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%);
+            background-size: 40px 40px; /* Adjust size for grid spacing */
+        }
+
+        /* Traditional vignette effect using a CSS layer */
+        .vignette-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Layered between the grid and the text */
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.8) 85%, black 100%);
+            pointer-events: none; /* Ensures vignette doesn't interfere with other interactions */
+        }
+
+        /* Canvas for the wavy background */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Ensures canvas is behind the grid */
+        }
+
+        /* Media Queries for additional responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 10vw; /* Adjust font size on smaller screens */
+            }
+
+            p {
+                font-size: 4.5vw; /* Adjust font size on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Main title "QuantifyX" -->
+        <h1>QuantifyX</h1>
+        <!-- "Launching Soon" text with reduced size and animation -->
+        <p>Launching Soon</p>
+    </div>
+
+    <!-- Grid background -->
+    <div class="grid-background"></div>
+
+    <!-- Traditional black vignette effect -->
+    <div class="vignette-layer"></div>
+
+    <!-- Canvas for animated wavy background -->
+    <canvas id="waveCanvas"></canvas>
+
+    <script>
+        // JavaScript to create the wavy background animation on the canvas
+        const canvas = document.getElementById("waveCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+
+        // Waves with bright glowing colors and medium speed
+        let wave1 = {
+            y: canvas.height / 2,
+            length: 0.015,
+            amplitude: 100,
+            frequency: 0.02, // Medium speed
+            color: "rgba(0, 200, 255, 1)", // Bright cyan
+            glow: "rgba(0, 200, 255, 0.7)" // Glow color
+        };
+
+        let wave2 = {
+            y: canvas.height / 2 + 30,
+            length: 0.02,
+            amplitude: 80,
+            frequency: 0.015, // Medium speed
+            color: "rgba(255, 0, 150, 1)", // Bright magenta
+            glow: "rgba(255, 0, 150, 0.7)" // Glow color
+        };
+
+        let wave3 = {
+            y: canvas.height / 2 - 30,
+            length: 0.01,
+            amplitude: 60,
+            frequency: 0.01, // Medium speed
+            color: "rgba(0, 150, 255, 1)", // Bright blue
+            glow: "rgba(0, 150, 255, 0.7)" // Glow color
+        };
+
+        let increment = 0;
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw waves with glowing effects
+            drawWave(wave1);
+            drawWave(wave2);
+            drawWave(wave3);
+
+            increment += wave1.frequency;
+            requestAnimationFrame(animate);
+        }
+
+        function drawWave(wave) {
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            for (let i = 0; i < canvas.width; i++) {
+                ctx.lineTo(
+                    i,
+                    wave.y + Math.sin(i * wave.length + increment) * wave.amplitude
+                );
+            }
+            ctx.strokeStyle = wave.color;
+            ctx.lineWidth = 3;
+            ctx.shadowColor = wave.glow;
+            ctx.shadowBlur = 20;
+            ctx.stroke();
+        }
+
+        animate();
+
+        // Adjust canvas size on window resize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            wave1.y = canvas.height / 2;
+            wave2.y = canvas.height / 2 + 30;
+            wave3.y = canvas.height / 2 - 30;
+        });
+    </script>
+
+</body>
+</html>
