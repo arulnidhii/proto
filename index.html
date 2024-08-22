@@ -205,8 +205,19 @@
             moveSlider(50); // Return to center when the mouse leaves
         };
 
+        const touchMoveHandler = (event) => {
+            const rect = sliderContainer.getBoundingClientRect();
+            const offsetX = event.touches[0].clientX - rect.left;
+            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
+            moveSlider(percent);
+        };
+
         sliderContainer.addEventListener('mousemove', mouseMoveHandler);
         sliderContainer.addEventListener('mouseleave', mouseLeaveHandler);
+
+        // Touch events for mobile
+        sliderContainer.addEventListener('touchmove', touchMoveHandler);
+        sliderContainer.addEventListener('touchend', mouseLeaveHandler);
 
         // Initial position in the center
         moveSlider(50);
@@ -217,6 +228,23 @@
             const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
 
             // Adjust which image is shown based on the direction of cursor movement
+            if (percent > lastX) {
+                // Moving right, show more of Image 1
+                moveSlider(percent);
+            } else {
+                // Moving left, show more of Image 2
+                moveSlider(percent);
+            }
+
+            lastX = percent;
+        });
+
+        sliderContainer.addEventListener('touchmove', (event) => {
+            const rect = sliderContainer.getBoundingClientRect();
+            const offsetX = event.touches[0].clientX - rect.left;
+            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
+
+            // Adjust which image is shown based on the direction of touch movement
             if (percent > lastX) {
                 // Moving right, show more of Image 1
                 moveSlider(percent);
