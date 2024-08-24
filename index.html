@@ -3,267 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuantifyX - Home</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #111; /* Darker background */
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-            color: white;
-        }
-
-        nav {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 3;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #d4af37;
-            font-weight: 700;
-            font-size: 1.2em;
-        }
-
-        nav ul li a:hover {
-            text-shadow: 0 0 10px rgba(212, 175, 55, 1);
-        }
-
-        .grid-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08) 76%, transparent 77%),
-                              linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08) 76%, transparent 77%);
-            background-size: 40px 40px;
-        }
-
-        .vignette-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: radial-gradient(circle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.6) 85%, black 100%);
-            pointer-events: none;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 20px; /* Added padding for smaller screens */
-            margin-bottom: 20px; /* Add some room below the container */
-        }
-
-        h1 {
-            font-size: 6vw;
-            font-weight: 700;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%; /* Full width for mobile responsiveness */
-            max-width: 1000px;
-            border: 2px solid #d4af37; /* Gold border */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
-            overflow: hidden;
-        }
-
-        .slider-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 10px;
-        }
-
-        .slider-container .slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .slider-container .slider img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .slider-container .handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 5px;
-            height: 100%;
-            background-color: #d4af37;
-            cursor: ew-resize;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 8vw; /* Larger font size for smaller screens */
-                margin-top: 10px; /* Adjusted margin for better spacing */
-            }
-
-            nav ul {
-                margin-top: 10px; /* Add some space from the top */
-            }
-
-            nav ul li a {
-                font-size: 1em; /* Slightly smaller nav links on mobile */
-                padding: 10px; /* Add padding to make links easier to tap */
-            }
-
-            .slider-container {
-                width: 90%; /* Use more of the screen width on smaller devices */
-                max-width: 600px; /* Restrict max width on mobile for better display */
-            }
-
-            .handle {
-                width: 3px; /* Thinner handle for smaller screens */
-            }
-        }
-
-    </style>
+    <title>QuantifyX - Your Data, Your AI, Your Edge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <h1>QuantifyX</h1>
-        <div class="slider-container">
-            <img src="https://github.com/arulnidhii/proto-images/blob/main/image%202.jpg?raw=true" alt="Image 1">
-            <div class="slider">
-                <img src="https://github.com/arulnidhii/proto-images/blob/main/image%201.jpg?raw=true" alt="Image 2">
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/arulnidhii/proto-images/main/quantifyx-logo.svg" alt="QuantifyX Logo">
+                <span>QuantifyX</span>
             </div>
-            <div class="handle"></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero fade-in">
+            <h1>Your Data, Your AI, Your Edge</h1>
+            <p>Unlock the power of your unstructured data with personalized AI solutions</p>
+            <a href="#contact" class="cta-button">Discover Your AI Edge</a>
+        </section>
+
+        <section id="features" class="fade-in">
+            <h2>Tailored AI Solutions</h2>
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile-First AI</h3>
+                    <p>Access your personalized AI assistant anytime, anywhere with our cutting-edge mobile application.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Integration</h3>
+                    <p>Seamlessly integrate your AI solution into your existing web infrastructure for desktop access.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-database"></i>
+                    <h3>Data Ownership</h3>
+                    <p>Maintain full control and ownership of your data with on-premises or private cloud deployment.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Custom AI Engine</h3>
+                    <p>Leverage a bespoke AI engine tailored to your specific business needs and data structures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="content-section">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step fade-in">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Understand Your Needs</h3>
+                    <p>We start by learning about your business and the challenges you're facing with unstructured data.</p>
+                </div>
+                <div class="step fade-in">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Build Your Solution</h3>
+                    <p>Our team develops a chat-based application tailored to your specific needs, scaling effortlessly from a few gigabytes to terabytes of data.</p>
+                </div>
+                <div class="step fade-in">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Simplify Your Workload</h3>
+                    <p>You get a user-friendly tool that transforms complex data into easy-to-understand answers, helping you make better decisions faster.</p>
+                </div>
+            </div>
+
+            <!-- Window Component -->
+            <div class="demo-section fade-in">
+                <h3>See Your Application in Action</h3>
+                <p>Experience how our AI assistant can analyze your data and provide actionable insights:</p>
+                <div class="window-component">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <span class="window-title"> Your Business Assistant ()</span>
+                        <div class="window-actions">
+                            <button class="minimize-btn"><i class="fas fa-minus"></i></button>
+                            <button class="maximize-btn"><i class="fas fa-square"></i></button>
+                            <button class="close-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="chat-message ai">
+                            <p>Hello! How can I assist you today?</p>
+                        </div>
+                        <div class="chat-message user">
+                            <p>Can you analyze our sales data for Q2?</p>
+                        </div>
+                        <div class="chat-message ai">
+                            <p>Certainly! I've analyzed the Q2 sales data. Here are the key insights:</p>
+                            <ul>
+                                <li>Overall sales increased by 15% compared to Q1</li>
+                                <li>Product A saw the highest growth at 22%</li>
+                                <li>The Western region outperformed other regions with an 18% increase</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security" class="fade-in">
+            <h2>Uncompromising Security</h2>
+            <div class="security-features">
+                <div class="security-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>End-to-End Encryption</h3>
+                    <p>Your data is protected with state-of-the-art encryption both in transit and at rest.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-user-lock"></i>
+                    <h3>Advanced Authentication</h3>
+                    <p>Multi-factor authentication and role-based access control ensure only authorized personnel can access your AI solution.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Isolated Environment</h3>
+                    <p>Your AI application runs in an isolated environment, minimizing exposure to external threats.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="fade-in">
+            <h2>Success Stories</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <p>"QuantifyX transformed our customer support with a personalized AI solution. Response times are down 60%, and customer satisfaction is at an all-time high."</p>
+                    - Sarah Johnson, CTO of TechCare Solutions
+                </div>
+                <div class="testimonial-card">
+                    <p>"The mobile AI app from QuantifyX has revolutionized how our field agents access and utilize company data. Efficiency is up 40% across the board."</p>
+                    - Michael Chen, Operations Director at FieldForce Inc.
+                </div>
+                <div class="testimonial-card">
+                    <p>"QuantifyX's custom AI solution helped us make sense of years of unstructured research data. We've accelerated our drug discovery process by months."</p>
+                    - Dr. Emily Patel, Head of R&D at BioInnovate Labs
+                </div>
+                <div class="testimonial-card">
+                    <p>"The level of data security provided by QuantifyX gave us the confidence to fully embrace AI in our financial operations. The ROI has been phenomenal."</p>
+                    - Robert Alvarez, CFO of SecureWealth Management
+                </div>
+                <div class="testimonial-card">
+                    <p>"QuantifyX delivered a game-changing AI solution that helps us navigate complex regulatory landscapes. It's like having an expert compliance officer on call 24/7."</p>
+                    - Lisa Thompson, Legal Director at GlobalTrade Corp
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2>Ready to Harness Your Data's Potential?</h2>
+            <p>Get in touch to discover how QuantifyX can transform your business with a personalized AI solution.</p>
+            <a href="#" class="cta-button">Schedule a Consultation</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QuantifyX</h3>
+                <p>Your Data, Your AI, Your Edge</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@quantifyx.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 QuantifyX. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div class="grid-background"></div>
-    <div class="vignette-layer"></div>
-
-    <script>
-        const slider = document.querySelector('.slider');
-        const handle = document.querySelector('.handle');
-        const sliderContainer = document.querySelector('.slider-container');
-        let lastX = 50;
-
-        const moveSlider = (percent) => {
-            slider.style.width = `${percent}%`;
-            handle.style.left = `${percent}%`;
-            lastX = percent;
-        };
-
-        const mouseMoveHandler = (event) => {
-            const rect = sliderContainer.getBoundingClientRect();
-            const offsetX = event.clientX - rect.left;
-            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
-            moveSlider(percent);
-        };
-
-        const mouseLeaveHandler = () => {
-            moveSlider(50); // Return to center when the mouse leaves
-        };
-
-        const touchMoveHandler = (event) => {
-            const rect = sliderContainer.getBoundingClientRect();
-            const offsetX = event.touches[0].clientX - rect.left;
-            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
-            moveSlider(percent);
-        };
-
-        sliderContainer.addEventListener('mousemove', mouseMoveHandler);
-        sliderContainer.addEventListener('mouseleave', mouseLeaveHandler);
-
-        // Touch events for mobile
-        sliderContainer.addEventListener('touchmove', touchMoveHandler);
-        sliderContainer.addEventListener('touchend', mouseLeaveHandler);
-
-        // Initial position in the center
-        moveSlider(50);
-
-        sliderContainer.addEventListener('mousemove', (event) => {
-            const rect = sliderContainer.getBoundingClientRect();
-            const offsetX = event.clientX - rect.left;
-            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
-
-            // Adjust which image is shown based on the direction of cursor movement
-            if (percent > lastX) {
-                // Moving right, show more of Image 1
-                moveSlider(percent);
-            } else {
-                // Moving left, show more of Image 2
-                moveSlider(percent);
-            }
-
-            lastX = percent;
-        });
-
-        sliderContainer.addEventListener('touchmove', (event) => {
-            const rect = sliderContainer.getBoundingClientRect();
-            const offsetX = event.touches[0].clientX - rect.left;
-            const percent = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
-
-            // Adjust which image is shown based on the direction of touch movement
-            if (percent > lastX) {
-                // Moving right, show more of Image 1
-                moveSlider(percent);
-            } else {
-                // Moving left, show more of Image 2
-                moveSlider(percent);
-            }
-
-            lastX = percent;
-        });
-
-    </script>
-
+    <script src="scripts.js"></script>
 </body>
 </html>
